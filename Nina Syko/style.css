@@ -1,0 +1,80 @@
+:root {
+    --neon-orange: #ff6a00;
+    --hp-color: #00ff00;
+}
+
+body {
+    margin: 0;
+    background-color: #050505;
+    color: white;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+}
+
+#nina-sprite {
+    height: 450px;
+    image-rendering: pixelated;
+    transform-origin: bottom;
+    transition: transform 0.1s, filter 0.1s;
+}
+
+/* Animação de Respiração */
+.sprite-idle {
+    animation: breath 2.5s ease-in-out infinite;
+}
+
+@keyframes breath {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.03) scaleX(0.99); }
+}
+
+/* Estado de Dano */
+.sprite-hurt {
+    filter: brightness(2) sepia(1) hue-rotate(-50deg) saturate(5);
+    animation: shake 0.2s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.hp-bar-container {
+    width: 300px;
+    height: 15px;
+    background: #222;
+    border: 2px solid #444;
+    margin: 10px auto;
+}
+
+.hp-fill {
+    width: 100%;
+    height: 100%;
+    background: var(--hp-color);
+    transition: width 0.3s;
+}
+
+.shadow {
+    width: 140px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    filter: blur(8px);
+    margin-top: -5px;
+}
