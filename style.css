@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: radial-gradient(circle at 20% 30%, #0a0a2a, #000);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+    border: 2px solid #00ffff;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,255,255,0.3);
+}
+
+/* HUD */
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(0,0,0,0.8);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.fighter-info {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ff66cc;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.5);
+}
+
+.fighter-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff66cc;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.health-bar, .special-bar {
+    margin: 8px 0;
+}
+
+.bar-bg {
+    background: #333;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    width: 100%;
+    transition: width 0.2s;
+}
+
+.health-bar .bar-fill {
+    background: #ff0040;
+}
+
+.special-bar .bar-fill {
+    background: #00ffff;
+}
+
+.health-value, .special-value {
+    font-size: 0.7rem;
+    margin-left: 8px;
+    color: #ddd;
+}
+
+.vs {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+    padding: 0 10px;
+}
+
+/* ARENA */
+.arena {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url('https://via.placeholder.com/1200x400?text=ARENA+STREET+FIGHTER');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin: 20px 0;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid #ff66cc;
+}
+
+.fighter {
+    width: 200px;
+    text-align: center;
+    padding: 20px;
+}
+
+.fighter img {
+    width: 100%;
+    filter: drop-shadow(0 0 10px #00ffff);
+    transition: transform 0.1s;
+}
+
+.fighter.hit {
+    transform: translateX(10px);
+}
+
+/* SELEÇÃO DE PERSONAGENS */
+.character-select {
+    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.neon-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 0 5px #00ffff;
+    margin-bottom: 20px;
+}
+
+.char-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.char-card {
+    background: rgba(0,0,0,0.8);
+    border: 1px solid #ff66cc;
+    border-radius: 20px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.char-card:hover {
+    transform: scale(1.05);
+    border-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.char-img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid #ff66cc;
+}
+
+.char-card h3 {
+    margin: 10px 0;
+    color: #ff66cc;
+}
+
+.select-fighter {
+    background: none;
+    border: 1px solid #ff66cc;
+    color: #ff66cc;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* CONTROLES */
+.controls {
+    background: rgba(0,0,0,0.7);
+    border-radius: 20px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.control-buttons button {
+    background: #222;
+    border: 1px solid #ff66cc;
+    color: #ff66cc;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.control-buttons button:hover {
+    background: #ff66cc;
+    color: #000;
+    box-shadow: 0 0 10px #ff66cc;
+}
+
+.separator {
+    margin: 0 10px;
+    color: #fff;
+}
+
+.reset-btn {
+    background: #ff0040;
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+    margin-top: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* COMBAT LOG */
+.combat-log {
+    background: rgba(0,0,0,0.6);
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 20px;
+    border-left: 4px solid #ff0040;
+}
+
+.combat-log h3 {
+    color: #ff0040;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+#log-list {
+    list-style: none;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+#log-list li {
+    font-size: 0.8rem;
+    padding: 4px 0;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .hud { flex-direction: column; }
+    .arena { height: 300px; }
+    .fighter { width: 120px; }
+    .control-buttons button { font-size: 0.7rem; padding: 5px 10px; }
+}
