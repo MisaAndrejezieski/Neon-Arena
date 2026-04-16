@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Arena · Street Fighter Style</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- HUD (cabeçalho) -->
+        <div class="hud">
+            <div class="fighter-info" id="player1-info">
+                <span class="fighter-name">RYU</span>
+                <div class="health-bar">
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="p1-health" style="width: 100%;"></div>
+                    </div>
+                    <span class="health-value" id="p1-health-value">100%</span>
+                </div>
+                <div class="special-bar">
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="p1-special" style="width: 0%;"></div>
+                    </div>
+                    <span class="special-value" id="p1-special-value">0%</span>
+                </div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="fighter-info" id="player2-info">
+                <span class="fighter-name">KEN</span>
+                <div class="health-bar">
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="p2-health" style="width: 100%;"></div>
+                    </div>
+                    <span class="health-value" id="p2-health-value">100%</span>
+                </div>
+                <div class="special-bar">
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="p2-special" style="width: 0%;"></div>
+                    </div>
+                    <span class="special-value" id="p2-special-value">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARENA (imagem de fundo) -->
+        <div class="arena" id="arena">
+            <div class="fighter" id="fighter1">
+                <img src="https://via.placeholder.com/200x300?text=Ryu" alt="Ryu" id="fighter1-img">
+            </div>
+            <div class="fighter" id="fighter2">
+                <img src="https://via.placeholder.com/200x300?text=Ken" alt="Ken" id="fighter2-img">
+            </div>
+        </div>
+
+        <!-- SELEÇÃO DE PERSONAGENS (antes da luta) -->
+        <div class="character-select" id="character-select">
+            <h2 class="neon-title">ESCOLHA SEU LUTADOR</h2>
+            <div class="char-grid">
+                <div class="char-card" data-fighter="ryu">
+                    <div class="char-img" style="background-image: url('https://via.placeholder.com/150x150?text=Ryu');"></div>
+                    <h3>Ryu</h3>
+                    <p>Golpes diretos · Hadouken</p>
+                    <button class="select-fighter">SELECIONAR</button>
+                </div>
+                <div class="char-card" data-fighter="chunli">
+                    <div class="char-img" style="background-image: url('https://via.placeholder.com/150x150?text=Chun-Li');"></div>
+                    <h3>Chun-Li</h3>
+                    <p>Velocidade · Chute relâmpago</p>
+                    <button class="select-fighter">SELECIONAR</button>
+                </div>
+                <div class="char-card" data-fighter="ken">
+                    <div class="char-img" style="background-image: url('https://via.placeholder.com/150x150?text=Ken');"></div>
+                    <h3>Ken</h3>
+                    <p>Agilidade · Chute ascendente</p>
+                    <button class="select-fighter">SELECIONAR</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTROLES DE COMBATE -->
+        <div class="controls" id="controls" style="display: none;">
+            <div class="control-buttons">
+                <button id="p1-light">👊 Soco Leve</button>
+                <button id="p1-heavy">💥 Soco Forte</button>
+                <button id="p1-special">✨ Hadouken</button>
+                <span class="separator">|</span>
+                <button id="p2-light">👊 Soco Leve</button>
+                <button id="p2-heavy">💥 Soco Forte</button>
+                <button id="p2-special">✨ Hadouken</button>
+            </div>
+            <button id="reset-fight" class="reset-btn">🔄 REINICIAR LUTA</button>
+        </div>
+
+        <!-- LOG DE COMBATE -->
+        <div class="combat-log">
+            <h3>⚔️ LOG DE COMBATE ⚔️</h3>
+            <ul id="log-list">
+                <li>🎮 Selecione os personagens para começar!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
